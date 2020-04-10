@@ -6,7 +6,7 @@
 	</head>
 	<body bgcolor="skyblue">
 		
-		<form method="post" action="http://localhost:8149/JavaEE00homework49/login">
+		<form method="post" action="http://localhost:8149/JavaEE00homework49/LoginServlet">
 			
 			<h1>注册</h1>
 			<label>学号：</label>
@@ -20,24 +20,7 @@
 			<label>性别：</label>
 			<input name="sex" type="radio" value="男"/>男
 			<input name="sex" type="radio" value="女"/>女<br />
-			<label>家庭住址：</label><br />
-			<select name="area" multiple="multiple" size="5">
-				
-				<optgroup label="陕西">
-				<option value="1">一</option>
-				<option value="2">二</option>
-				<option value="3">三</option>
-				<option value="4">四</option>
-				</optgroup>
-				<optgroup label="甘肃">
-				<option value="5">五</option>
-				<option value="6">六</option>
-				<option value="7">七</option>
-				<option value="8">八</option>
-				</optgroup>
-				
-				
-			</select><br />
+			
 			<label>爱好</label>
 			<input name="active" type="checkbox" value="游泳"/>游泳
 			<input name="active" type="checkbox" value="篮球"/>篮球
