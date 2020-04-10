@@ -1,13 +1,12 @@
 package test;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/LoginServlet0201")
@@ -23,12 +22,28 @@ public class LoginServlet0201 extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	RequestDispatcher dispatcher =	request.getRequestDispatcher("LoginServlet0202");
-	
+		response.setContentType("text/html;utf-8");
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
+
+		String tel = request.getParameter("tel");
+		String bir = request.getParameter("bir");
+		String name = request.getParameter("name");
+		String[] sex = request.getParameterValues("sex");
+		String[] active = request.getParameterValues("active");
 		
-		dispatcher.forward(request, response);
+		HttpSession session = request.getSession(true);
 		
-		System.out.println("转发成功");
+		String id = session.getId();
+		session.setAttribute("tel",tel);
+		session.setAttribute("bir",bir);
+		session.setAttribute("name",name);
+		
+		response.sendRedirect("LoginServlet0202");
+		
+		
+		
+		
 	}
 
 	
