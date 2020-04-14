@@ -3,7 +3,7 @@ package sct_02;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -23,9 +23,9 @@ public class LogoutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html;utf-8");
-		response.setCharacterEncoding("utf-8");
-		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;GBK");
+		response.setCharacterEncoding("GBK");
+		request.setCharacterEncoding("GBK");
 
 		PrintWriter out = response.getWriter();
 
@@ -37,10 +37,7 @@ public class LogoutServlet extends HttpServlet {
 		response.addCookie(cpass);
 
 		out.print("你已经成功注销!");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
-
-		dispatcher.forward(request, response);
-
+		out.print("<a href=\"http://localhost:8149/JavaEESCT_02/index.html\">重新登录请访问</a>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

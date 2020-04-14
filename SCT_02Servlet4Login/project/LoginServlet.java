@@ -3,7 +3,6 @@ package sct_02;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -50,6 +49,7 @@ public class LoginServlet extends HttpServlet {
 
 		} else {
 			out.print("抱歉，用户名或密码错误!");
+			out.print("<a href=\"http://localhost:8149/JavaEESCT_02/index.html\">重新登录请访问</a>");
 
 		}
 

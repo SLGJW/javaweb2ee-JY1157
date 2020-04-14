@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.startup.PasswdUserDatabase;
+
 
 @WebServlet("/ReadCookieServlet")
 public class ReadCookieServlet extends HttpServlet {
@@ -45,6 +45,7 @@ public class ReadCookieServlet extends HttpServlet {
 	            }
 	        } else {
 	            out.print("请先登录~");
+	            out.print("<a href=\"http://localhost:8149/JavaEESCT_02/index.html\">登录请访问</a>");
 	            
 	        }
    
