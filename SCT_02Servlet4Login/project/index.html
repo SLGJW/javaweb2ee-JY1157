@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!-- <script>
+			function check() {
+				var name = document.getElementById("name").value;
+				var pass = document.getElementById("pass").value;
+
+				if(name == "1" && pass == "1") {
+					alert("登入成功");
+					window.document.myname.action = "http://localhost:8149/JavaEESCT_02/SCT_02Servlet";
+					window.document.myname.submit();
+				} else {
+					alert("用户名或密码错误");
+				}
+			}
+		</script> -->
+		
+	</head>
+
+	<body>
+	
+
+		<form name="myname" action="http://localhost:8149/JavaEESCT_02/LoginServlet" method="post">
+			<label>帐号：</label>
+			<input name="name" type="text" id="name" /><br />
+			<label>密码：</label>
+			<input name="pass" type="password" id="pass"/><br />
+			<input type="submit" value="提交" />
+			<INPUT TYPE="reset" value="重置"><br>
+			
+		</form>
+		
+	</body>
+
+</html>
