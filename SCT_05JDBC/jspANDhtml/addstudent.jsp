@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form method="post" action="AddServlet">
+			
+			<h1>学生信息录入</h1>
+			
+			<label>ID：</label>
+			<input name="sid" type="text" /><br />
+			<label>姓名：</label>
+			<input name="sname" type="text" /><br />
+			
+			<label>生日：  </label>
+			<input name="sbirthday" type="date" value="yyyy-mm-dd" /><br />
+			
+			<label>性别：</label>
+			<input name="ssex" type="radio" value="1"/>男
+			<input name="ssex" type="radio" value="0"/>女<br />
+			
+			<input type="submit" value="提交" />
+			<INPUT TYPE="reset" value="重置"><br>
+			
+			
+		</form>
+
+</body>
+</html>
