@@ -1,12 +1,9 @@
 package com.company;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,34 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import oracle.net.aso.e;
 
-@WebServlet("/AddServlet")
-public class AddServlet extends HttpServlet {
+@WebServlet("/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	// 声明“数据库连接对象”，单例模式
-	private static Connection conn;
+		private static Connection conn;
+   
+    public DeleteServlet() {
+        super();
+        
+    }
 
-	public AddServlet() {
-		super();
-
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
-		request.setCharacterEncoding("utf-8");
-		
-		String sid = request.getParameter("sid");
-		String sname = request.getParameter("sname");
-		String sbirthday = request.getParameter("sbirthday");
-		String ssex = request.getParameter("ssex");
-
-		String sql = null;
-		PreparedStatement statement = null;
-
 		try {
 			// 加载“驱动类” SPI
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -58,39 +43,38 @@ public class AddServlet extends HttpServlet {
 			System.out.println("[操作提示]恭喜您，数据库连接成功！");
 
 			//初始化预编译语句对象
+			
+			String sql = null;
+			PreparedStatement statement = null;
+			
+			
+			String sid = request.getParameter("sid");
 
-			sql = "INSERT INTO student  VALUES(?,?,to_date(?,'yyyy-mm-dd'),?)";
+			sql = "delete  student where sid =?";
 			statement = conn.prepareStatement(sql);
 			System.out.println("语句对象传入成功");
 
 			// 动态传参
 			statement.setString(1, sid);
-			statement.setString(2, sname);
-			statement.setString(3, sbirthday);
-			statement.setString(4, ssex);
+			 statement.executeUpdate();
 			
-			System.out.println("传参成功");
+			System.out.println("删除成功！");
 
-			statement.executeUpdate();
 			
-			statement.close();
-            conn.close();
 
-
-		
+	
 			
 			
 
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			System.out.println("出错啦！");
 		}
-		
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doGet(request, response);
 	}
 

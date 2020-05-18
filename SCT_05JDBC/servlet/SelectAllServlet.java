@@ -13,14 +13,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SimpleQueryServlet")
-public class SimpleQueryServlet extends HttpServlet {
+@WebServlet("/SelectAllServlet")
+public class SelectAllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	// 声明“数据库连接对象”，单例模式
 	private static Connection conn;
 
-	public SimpleQueryServlet() {
+	public SelectAllServlet() {
 		super();
 
 	}
@@ -52,8 +52,10 @@ public class SimpleQueryServlet extends HttpServlet {
 	             
 	            //第四步：将结果集中的数据提取
 	            PrintWriter pw = response.getWriter();
-	            pw.write("<a href=\"addstudent.jsp\">添加学生</a>");
-	            pw.write("<a href=\"select.html\">查找学生</a>");
+	            pw.write("<a href=\"addstudent.jsp\">添加学生</a>"+"<br/>");
+	            pw.write("<a href=\"select.html\">查找学生</a>"+"<br/>");
+	            pw.write("<a href=\"delete.html\">删除学生信息</a>"+"<br/>");
+	            pw.write("<a href=\"update.html\">修改信息</a>"+"<br/>");
 	            pw.write("<table>");
 	            pw.write("<tr>");
 	            pw.write("<th>ID</th>");

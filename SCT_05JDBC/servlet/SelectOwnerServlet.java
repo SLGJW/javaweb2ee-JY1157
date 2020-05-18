@@ -14,13 +14,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/MemberQueryServlet")
-public class MemberQueryServlet extends HttpServlet {
+@WebServlet("/SelectOwnerServlet")
+public class SelectOwnerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	// 声明“数据库连接对象”，单例模式
 	private static Connection conn;
 
-	public MemberQueryServlet() {
+	public SelectOwnerServlet() {
 		super();
 
 	}
@@ -30,7 +30,9 @@ public class MemberQueryServlet extends HttpServlet {
 
 		response.setContentType("text/html;charset=utf-8");
 
-		String sname = request.getParameter("username");
+		String sid = request.getParameter("sid");
+		
+		System.out.println(sid);
 
 		try {
 			// 加载“驱动类” SPI
@@ -48,11 +50,11 @@ public class MemberQueryServlet extends HttpServlet {
 			System.out.println("[操作提示]恭喜您，数据库连接成功！");
 
 			// 第三步：构建查询对象
-			String sql = "select * from student where sname=?";
+			String sql = "select * from student where sid = ?";
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, sname);
+			statement.setString(1, sid);
 
-			ResultSet rs = statement.executeQuery(sql);
+			ResultSet rs = statement.executeQuery();
 
 			System.out.println("构建查询对象");
 
