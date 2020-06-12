@@ -1,0 +1,53 @@
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.inner_title{
+	width: 100%;
+	height:78px;
+	background: -webkit-linear-gradient(
+		top,black,transparent
+	);
+	margin-top: -16px;
+	background-color: #000000;
+}
+.web_name{
+	width: 132px;
+	height:49px;
+	/* margin-top: 10px; */
+	padding-top: 23px;
+	float: left;
+	font-size: 26px;
+	text-align: center;
+	margin-left: 90px;
+	color: #0000FF;
+}
+.cen_title li{
+	width: 200px;
+	height:49px;
+	float: left;
+	list-style: none;
+	text-align: center;
+	padding-top: 23px;
+	font-size: 18px;
+	color: white;
+}
+.cen_title li a{
+	text-decoration: none;
+	color: white;
+}
+.login_title{
+	width: 180px;
+	height:49px;
+	float: left;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	padding-top: 23px;
+	margin-left: 230px;
+	color: #fefefe;
+}
+.login_title a{
+	text-decoration: none;
+	color: #f5d185;
+}
